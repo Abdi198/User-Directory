@@ -1,43 +1,37 @@
 import React from 'react';
-import { Table } from 'reactstrap';
+ 
 
-const TableDisplay = (props) => {
+function TableDisplay  (props)  {
   console.log(props.randomPeople, "results")
   return (
-    <Table dark>
+    <table>
       <thead>
         <tr>
           <th>#</th>
           <th>Picture</th>
-          <th onClick={ props.handleClick}>First Name</th>
-          <th  >Last Name</th>
+          <th >First Name</th>
+          <th onClick={props.handleClick} >Last Name</th>
           <th>Email</th>
           <th>Phone</th>
         </tr>
       </thead>
       <tbody>
-          
-      {props.randomPeople.length>0 ? props.randomPeople.map((people) => {
+          {console.log("table: " , props.randomPeople)}
+      { props.randomPeople.map((people, index) => {
         return (
-         <tr >
-           <td></td>
-          <td> <img src={people.picture.thumbnail} /> </td>
+         <tr key={index} >
+           <td>{index+1}</td>
+          <td> <img src={people.picture.thumbnail} alt = "picture" /> </td>
         <td>{people.name.first}</td>
         <td>{people.name.last}</td>
         <td>{people.email}</td>
         <td>{people.phone}</td></tr>)
-      }):
-          (<tr><td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td></tr>)
+      }) 
       }
 
         
       </tbody>
-    </Table>
+    </table>
   );
 }
 

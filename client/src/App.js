@@ -32,11 +32,12 @@ function App() {
   const handleClick = columnName => {
     const newRandomPeople = randomPeople.sort((a,b) => {
       //console.log("first:",a.n?ame.first)
-      return a.name.first.localeCompare(b.name.first)
+      return a.name.last.localeCompare(b.name.last)
     })  
    // alert("success")
     setRandomPeople(newRandomPeople)
-    //console.log(randomPeople)
+    console.log(randomPeople)
+    alert("clicked")
   }
   return (
     <> 
